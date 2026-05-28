@@ -1,0 +1,131 @@
+import {
+  MiniDPPreview,
+  MiniGeometryPreview,
+  MiniGraphPreview,
+  MiniSortingPreview,
+  MiniStringPreview,
+  MiniTreePreview,
+} from '../components/Hub/MiniPreviews';
+
+export const algorithmsData = [
+  {
+    id: 'sorting',
+    title: {
+      en: 'Sorting Algorithms',
+      ua: 'Алгоритми сортування',
+    },
+    description: {
+      en: 'Compare-and-swap motion rendered as a high-speed bar console with bright success and swap pulses.',
+      ua: 'Порівняння й обміни показані як швидка барова консоль із яскравими спалахами успіху та перестановок.',
+    },
+    preview: MiniSortingPreview,
+    route: '/sorting',
+    status: 'active',
+    accent: {
+      key: 'cyan',
+      hex: '#00d2ff',
+      glow: 'rgba(0, 210, 255, 0.34)',
+      softGlow: 'rgba(0, 210, 255, 0.16)',
+    },
+  },
+  {
+    id: 'graphs',
+    title: {
+      en: 'Graphs & Networks',
+      ua: 'Графи та мережі',
+    },
+    description: {
+      en: 'A BFS wave propagates through nodes and links like a routing signal moving across a cybernetic network.',
+      ua: 'Хвиля BFS проходить крізь вузли та звʼязки наче мережевий сигнал у кібернетичній системі.',
+    },
+    preview: MiniGraphPreview,
+    route: '/graphs',
+    status: 'active',
+    accent: {
+      key: 'emerald',
+      hex: '#10b981',
+      glow: 'rgba(16, 185, 129, 0.3)',
+      softGlow: 'rgba(16, 185, 129, 0.15)',
+    },
+  },
+  {
+    id: 'dp',
+    title: {
+      en: 'Dynamic Programming',
+      ua: 'Динамічне програмування',
+    },
+    description: {
+      en: 'Knapsack states settle cell by cell, exposing dependencies as a luminous memoization matrix.',
+      ua: 'Стан рюкзака збирається комірка за коміркою, відкриваючи залежності як сяючу матрицю мемоізації.',
+    },
+    preview: MiniDPPreview,
+    route: '/dp-workbench',
+    status: 'active',
+    accent: {
+      key: 'fuchsia',
+      hex: '#d946ef',
+      glow: 'rgba(217, 70, 239, 0.3)',
+      softGlow: 'rgba(217, 70, 239, 0.15)',
+    },
+  },
+  {
+    id: 'trees',
+    title: {
+      en: 'Trees & Data Structures',
+      ua: 'Дерева та структури даних',
+    },
+    description: {
+      en: 'A DFS cursor dives through a branching structure, tracing hierarchy depth with a warm amber signal.',
+      ua: 'Курсор DFS занурюється в розгалужену структуру й підсвічує глибину ієрархії теплим бурштиновим сигналом.',
+    },
+    preview: MiniTreePreview,
+    route: '/trees',
+    status: 'active',
+    accent: {
+      key: 'amber',
+      hex: '#f59e0b',
+      glow: 'rgba(245, 158, 11, 0.32)',
+      softGlow: 'rgba(245, 158, 11, 0.16)',
+    },
+  },
+  {
+    id: 'strings',
+    title: {
+      en: 'String Algorithms',
+      ua: 'Рядкові алгоритми',
+    },
+    description: {
+      en: 'A KMP window slides across text with match and mismatch pulses tuned like a forensic scanner.',
+      ua: 'Вікно KMP ковзає по тексту зі спалахами збігів і помилок, мов форензичний сканер.',
+    },
+    preview: MiniStringPreview,
+    route: '/strings',
+    status: 'active',
+    accent: {
+      key: 'rose',
+      hex: '#f43f5e',
+      glow: 'rgba(244, 63, 94, 0.32)',
+      softGlow: 'rgba(244, 63, 94, 0.16)',
+    },
+  },
+  {
+    id: 'geometry',
+    title: {
+      en: 'Computational Geometry',
+      ua: 'Обчислювальна геометрія',
+    },
+    description: {
+      en: 'A convex hull perimeter is forged edge by edge, wrapping the point cloud in a precise golden trace.',
+      ua: 'Опукла оболонка формується ребро за ребром і огортає хмару точок точною золотою траєкторією.',
+    },
+    preview: MiniGeometryPreview,
+    route: null,
+    status: 'preview',
+    accent: {
+      key: 'yellow',
+      hex: '#facc15',
+      glow: 'rgba(250, 204, 21, 0.32)',
+      softGlow: 'rgba(250, 204, 21, 0.16)',
+    },
+  },
+];

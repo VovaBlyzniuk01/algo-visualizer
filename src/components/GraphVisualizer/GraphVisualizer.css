@@ -1,0 +1,213 @@
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(16, 185, 129, 0.03); /* subtle emerald tint */
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 40px rgba(16, 185, 129, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+.grid-row {
+  display: flex;
+}
+
+.node {
+  width: 22px;
+  height: 22px;
+  outline: 1px solid rgba(16, 185, 129, 0.15);
+  display: inline-block;
+  background-color: transparent;
+  transition: background-color 0.05s ease-out;
+  cursor: crosshair;
+}
+
+.node:hover {
+  background-color: rgba(16, 185, 129, 0.3);
+}
+
+.node-start {
+  background-color: #3b82f6; /* neon blue for start */
+  outline: 1px solid #2563eb;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #3b82f6;
+  z-index: 10;
+  position: relative;
+  transform: scale(1.1);
+}
+
+.node-finish {
+  background-color: #ef4444; /* neon red/orange for finish */
+  outline: 1px solid #dc2626;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #ef4444;
+  z-index: 10;
+  position: relative;
+  transform: scale(1.1);
+}
+
+.node-wall {
+  background-color: #064e3b; 
+  outline: 1px solid #10b981;
+  animation-name: wallAnimation;
+  animation-duration: 0.25s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.node-weight-5 {
+  background-color: #d97706; /* Amber-600 */
+  outline: 1px solid #fbbf24;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  animation-name: weightAnimation;
+  animation-duration: 0.25s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.node-weight-10 {
+  background-color: #9a3412; /* Orange-800 */
+  outline: 1px solid #f97316;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+  animation-name: weightAnimation10;
+  animation-duration: 0.25s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.node-weight-visited-5 {
+  background-color: #d97706;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #fbbf24;
+}
+
+.node-weight-visited-10 {
+  background-color: #9a3412;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #f97316;
+}
+
+.weight-text {
+  display: none;
+}
+.node-weight-5 .weight-text, .node-weight-visited-5 .weight-text,
+.node-weight-10 .weight-text, .node-weight-visited-10 .weight-text {
+  display: block;
+  opacity: 1;
+}
+
+@keyframes wallAnimation {
+  0% { transform: scale(0.3); background-color: rgba(16, 185, 129, 0.2); border-radius: 100%;}
+  50% { transform: scale(1.1); background-color: #047857; }
+  100% { transform: scale(1); background-color: #064e3b; }
+}
+
+@keyframes weightAnimation {
+  0% { transform: scale(0.3); background-color: rgba(217, 119, 6, 0.2); border-radius: 100%;}
+  50% { transform: scale(1.1); background-color: #f59e0b; }
+  100% { transform: scale(1); background-color: #d97706; }
+}
+
+@keyframes weightAnimation10 {
+  0% { transform: scale(0.3); background-color: rgba(154, 52, 18, 0.2); border-radius: 100%;}
+  50% { transform: scale(1.1); background-color: #c2410c; }
+  100% { transform: scale(1); background-color: #9a3412; }
+}
+
+.node-visited {
+  animation-name: visitedAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes visitedAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(0, 0, 66, 0.75);
+    border-radius: 100%;
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: rgba(17, 104, 217, 0.75);
+    box-shadow: 0 0 10px rgba(17, 104, 217, 1);
+  }
+  100% {
+    transform: scale(1);
+    background-color: rgba(30, 58, 138, 0.8); /* deep translucent blue */
+    outline: 1px solid rgba(59, 130, 246, 0.4);
+  }
+}
+
+.node-shortest-path {
+  transition: none !important;
+  animation-name: shortestPath;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes shortestPath {
+  0% {
+    transform: scale(0.6);
+    background-color: rgba(253, 224, 71, 0.4); /* yellow glow */
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: #fde047;
+    box-shadow: 0 0 15px rgba(253, 224, 71, 1);
+  }
+  100% {
+    transform: scale(1);
+    background-color: #facc15;
+    box-shadow: 0 0 10px rgba(250, 204, 21, 0.8);
+  }
+}
+
+.node-shortest-path.node-start {
+  animation-name: shortestPathStart;
+}
+@keyframes shortestPathStart {
+  0% { transform: scale(0.6); box-shadow: 0 0 15px rgba(253, 224, 71, 0.4); }
+  50% { transform: scale(1.2); box-shadow: 0 0 20px #facc15; }
+  100% { transform: scale(1.1); box-shadow: 0 0 15px #facc15, 0 0 0 2px #3b82f6 inset; background-color: #3b82f6; }
+}
+
+.node-shortest-path.node-finish {
+  animation-name: shortestPathFinish;
+}
+@keyframes shortestPathFinish {
+  0% { transform: scale(0.6); box-shadow: 0 0 15px rgba(253, 224, 71, 0.4); }
+  50% { transform: scale(1.2); box-shadow: 0 0 20px #facc15; }
+  100% { transform: scale(1.1); box-shadow: 0 0 15px #facc15, 0 0 0 2px #ef4444 inset; background-color: #ef4444; }
+}
+
+.grid-error {
+  animation: glitch-red 0.4s ease-in-out;
+  border-color: rgba(239, 68, 68, 0.8) !important;
+  box-shadow: 0 0 40px rgba(239, 68, 68, 0.4) !important;
+}
+
+@keyframes glitch-red {
+  0% { transform: translate(0) }
+  20% { transform: translate(-4px, 2px) }
+  40% { transform: translate(-4px, -2px) }
+  60% { transform: translate(4px, 2px) }
+  80% { transform: translate(4px, -2px) }
+  100% { transform: translate(0) }
+}
+
+.node-failed {
+  transition: none !important;
+  background-color: #ef4444 !important;
+  box-shadow: 0 0 10px #ef4444 !important;
+}

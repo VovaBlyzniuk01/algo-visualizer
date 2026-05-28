@@ -1,0 +1,241 @@
+.svg-edge.visited {
+    stroke: #0ea5e9;
+    stroke-opacity: 0.9;
+    filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.8));
+    marker-end: url(#arrowhead-visited);
+}
+
+.svg-edge.shortest-path {
+    stroke: #4ade80;
+    stroke-opacity: 1;
+    stroke-width: 5;
+    filter: drop-shadow(0 0 10px rgba(74, 222, 128, 0.9));
+    marker-end: url(#arrowhead-path);
+}
+
+.svg-node.visited .node-circle {
+    fill: #0c4a6e;
+    stroke: #38bdf8;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.8));
+}
+
+.svg-node.shortest-path .node-circle {
+    fill: #14532d;
+    stroke: #4ade80;
+    stroke-width: 4;
+    filter: drop-shadow(0 0 16px rgba(74, 222, 128, 0.9));
+}
+
+.svg-node.backtrack .node-circle {
+    fill: #7c2d12;
+    stroke: #fb923c;
+    stroke-width: 3;
+    opacity: 0.85;
+    filter: drop-shadow(0 0 10px rgba(251, 146, 60, 0.8));
+}
+
+.svg-edge.backtrack {
+    stroke: #fb923c;
+    stroke-opacity: 0.85;
+    stroke-width: 4;
+    filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.8));
+}
+
+.svg-node.is-dragging {
+    cursor: grabbing !important;
+}
+
+.svg-node.is-dragging .node-circle {
+    filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.5));
+}
+
+.hover-glow:hover .node-circle {
+    filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.6));
+}
+
+.svg-edge.relaxing {
+    stroke: #facc15;
+    stroke-opacity: 1;
+    stroke-width: 5;
+    filter: drop-shadow(0 0 12px rgba(250, 204, 21, 0.85));
+}
+
+.svg-node.distance-updated .node-circle {
+    animation: nodeGlowPulse 0.28s ease-in-out;
+    fill: #1f2937;
+    stroke: #facc15;
+    stroke-width: 4;
+}
+
+.svg-node.queue-ready .node-circle {
+    stroke: #facc15;
+    stroke-width: 4;
+    filter: drop-shadow(0 0 14px rgba(250, 204, 21, 0.9));
+}
+
+.svg-node.processing .node-circle {
+    animation: nodeGlowPulse 0.75s ease-in-out infinite;
+    fill: #3b2f08;
+    stroke: #fde047;
+    stroke-width: 5;
+}
+
+.svg-node.processed {
+    opacity: 0.3;
+}
+
+.svg-edge.topo-relaxed {
+    stroke: #facc15;
+    stroke-opacity: 1;
+    stroke-width: 5;
+    filter: drop-shadow(0 0 12px rgba(250, 204, 21, 0.85));
+}
+
+.svg-edge.mst-candidate {
+    stroke: #facc15;
+    stroke-opacity: 1;
+    stroke-width: 5;
+    filter: drop-shadow(0 0 12px rgba(250, 204, 21, 0.9));
+}
+
+.svg-edge.mst-accepted {
+    stroke: #34d399;
+    stroke-opacity: 1;
+    stroke-width: 6;
+    filter: drop-shadow(0 0 14px rgba(52, 211, 153, 0.95));
+}
+
+.svg-edge.mst-rejected {
+    stroke: #ef4444;
+    stroke-opacity: 0.18;
+    stroke-width: 2;
+    filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.75));
+}
+
+.svg-edge.prim-fringe {
+    stroke: #facc15;
+    stroke-opacity: 0.55;
+    stroke-width: 4;
+    stroke-dasharray: 7 7;
+    animation: primFringePulse 0.8s ease-in-out infinite;
+}
+
+.svg-edge.prim-selected {
+    stroke: #f8fafc;
+    stroke-opacity: 1;
+    stroke-width: 7;
+    stroke-dasharray: none;
+    filter: drop-shadow(0 0 18px rgba(248, 250, 252, 0.95));
+}
+
+.svg-edge.prim-tree {
+    stroke: #34d399;
+    stroke-opacity: 1;
+    stroke-width: 6;
+    stroke-dasharray: none;
+    filter: drop-shadow(0 0 14px rgba(52, 211, 153, 0.95));
+}
+
+.svg-node.prim-root .node-circle,
+.svg-node.prim-visited .node-circle {
+    fill: #14532d;
+    stroke: #34d399;
+    stroke-width: 4;
+    filter: drop-shadow(0 0 16px rgba(52, 211, 153, 0.9));
+}
+
+.svg-node.prim-active .node-circle {
+    animation: nodeGlowPulse 0.45s ease-in-out;
+    stroke: #f8fafc;
+    filter: drop-shadow(0 0 18px rgba(248, 250, 252, 0.9));
+}
+
+.node-indegree-label {
+    paint-order: stroke;
+    stroke: rgba(5, 11, 20, 0.95);
+    stroke-width: 3px;
+}
+
+.topological-order-bar {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 2.5rem;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    border-radius: 0.5rem;
+    background: rgba(2, 44, 34, 0.9);
+    box-shadow: 0 0 18px rgba(16, 185, 129, 0.12);
+    color: rgba(209, 250, 229, 0.82);
+    font-family: monospace;
+    font-size: 0.82rem;
+    font-weight: 800;
+    pointer-events: none;
+}
+
+.topological-order-bar strong {
+    color: #facc15;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.kruskal-sorted-bar {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 2.5rem;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    border-radius: 0.5rem;
+    background: rgba(2, 44, 34, 0.9);
+    box-shadow: 0 0 18px rgba(16, 185, 129, 0.12);
+    color: rgba(209, 250, 229, 0.82);
+    font-family: monospace;
+    font-size: 0.78rem;
+    font-weight: 800;
+    pointer-events: none;
+}
+
+.kruskal-sorted-bar strong {
+    color: #facc15;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.edge-weight-label {
+    paint-order: stroke;
+    stroke: rgba(5, 11, 20, 0.95);
+    stroke-width: 3px;
+}
+
+@keyframes nodeGlowPulse {
+    0% {
+        stroke-opacity: 0.75;
+        filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.45));
+    }
+    50% {
+        stroke-opacity: 1;
+        filter: drop-shadow(0 0 16px rgba(250, 204, 21, 0.85));
+    }
+    100% {
+        stroke-opacity: 0.75;
+        filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.45));
+    }
+}
+
+@keyframes primFringePulse {
+    0% { stroke-opacity: 0.28; }
+    50% { stroke-opacity: 0.75; }
+    100% { stroke-opacity: 0.28; }
+}
