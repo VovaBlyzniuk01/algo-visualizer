@@ -45,7 +45,7 @@ const Node = ({
   );
 };
 
-export default React.memo(Node, (prevProps, nextProps) => {
+export function areNodePropsEqual(prevProps, nextProps) {
   return (
     prevProps.isWall === nextProps.isWall &&
     prevProps.isWeight === nextProps.isWeight &&
@@ -55,4 +55,6 @@ export default React.memo(Node, (prevProps, nextProps) => {
     prevProps.isVisited === nextProps.isVisited &&
     prevProps.isShortestPath === nextProps.isShortestPath
   );
-});
+}
+
+export default React.memo(Node, areNodePropsEqual);

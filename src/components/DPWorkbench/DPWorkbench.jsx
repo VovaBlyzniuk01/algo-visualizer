@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useRef, useLayoutEffect } from 're
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import { ChevronLeft, StepForward, StepBack, Play, Square, RotateCcw } from 'lucide-react';
 
 const SPEED_OPTIONS = [0.25, 0.5, 1, 1.5, 2, 10];
@@ -281,9 +282,12 @@ const DPWorkbench = () => {
                 </button>
             </div>
             
-            <div className="flex gap-1 bg-white/5 p-1 rounded-lg border border-white/10 shadow-lg shrink-0">
-                <button onClick={() => setLanguage('ua')} className={`px-3 py-1 text-sm font-semibold rounded-md transition-all ${language === 'ua' ? 'bg-purple-600 shadow text-white' : 'text-purple-200 hover:bg-white/10'}`}>UA</button>
-                <button onClick={() => setLanguage('en')} className={`px-3 py-1 text-sm font-semibold rounded-md transition-all ${language === 'en' ? 'bg-purple-600 shadow text-white' : 'text-purple-200 hover:bg-white/10'}`}>EN</button>
+            <div className="flex items-center gap-3">
+              <ThemeToggle />
+              <div className="flex gap-1 bg-white/5 p-1 rounded-lg border border-white/10 shadow-lg shrink-0">
+                  <button onClick={() => setLanguage('ua')} className={`px-3 py-1 text-sm font-semibold rounded-md transition-all ${language === 'ua' ? 'bg-purple-600 shadow text-white' : 'text-purple-200 hover:bg-white/10'}`}>UA</button>
+                  <button onClick={() => setLanguage('en')} className={`px-3 py-1 text-sm font-semibold rounded-md transition-all ${language === 'en' ? 'bg-purple-600 shadow text-white' : 'text-purple-200 hover:bg-white/10'}`}>EN</button>
+              </div>
             </div>
         </header>
 

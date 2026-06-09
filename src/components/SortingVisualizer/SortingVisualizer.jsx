@@ -6,6 +6,7 @@ import { mergeSort as mergeSortAlgorithm } from "../../algorithms/mergeSort";
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, StepForward, StepBack } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 const SPEED_OPTIONS = [0.25, 0.5, 1, 1.5, 2, 10];
 const BASE_SORT_DELAY_MS = 500;
@@ -437,7 +438,8 @@ const SortingVisualizer = () => {
              {t.sortTitle}
           </motion.h1>
           
-          <div className="flex-1 flex justify-end">
+          <div className="flex-1 flex justify-end items-center gap-3">
+            <ThemeToggle />
             <div className="flex gap-1 bg-neutral-950/50 p-1 rounded-lg border border-blue-900/30 hidden sm:flex">
               <button onClick={() => setLanguage('ua')} className={`px-3 py-1 text-sm font-semibold rounded-md transition-all ${language === 'ua' ? 'bg-blue-600 shadow text-white' : 'text-blue-200 hover:bg-white/10'}`}>UA</button>
               <button onClick={() => setLanguage('en')} className={`px-3 py-1 text-sm font-semibold rounded-md transition-all ${language === 'en' ? 'bg-blue-600 shadow text-white' : 'text-blue-200 hover:bg-white/10'}`}>EN</button>

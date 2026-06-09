@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import { TreesControls } from './TreesControls';
 import { TreeCanvas } from './TreeCanvas';
 import { runTreeAlgorithm } from '../../algorithms/treeAlgorithms';
@@ -268,7 +269,9 @@ const TreesVisualizer = () => {
         <motion.h1 className="flex-none text-2xl md:text-3xl lg:text-4xl font-bold tracking-wider transition-colors text-center text-amber-500 drop-shadow-md">
           {labels[language].title}
         </motion.h1>
-        <div className="flex-1 flex justify-end"></div>
+        <div className="flex-1 flex justify-end">
+          <ThemeToggle />
+        </div>
         </div>
       </header>
       

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, StepForward } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 const BASE_DELAY_MS = 600;
 const SPEED_OPTIONS = [0.25, 0.5, 1, 1.5, 2, 10];
@@ -364,8 +365,9 @@ const GeometryVisualizer = () => {
            {t.geometryTitle || 'Computational Geometry'}
         </motion.h1>
         
-        <div className="flex-1 flex justify-end">
-          <div className="flex gap-1 bg-yellow-950/30 p-1 rounded-lg border border-white/10 hidden sm:flex shadow-inner">
+        <div className="flex-1 flex justify-end items-center gap-3">
+            <ThemeToggle />
+            <div className="flex gap-1 bg-yellow-950/30 p-1 rounded-lg border border-white/10 hidden sm:flex shadow-inner">
             <button onClick={() => setLanguage('ua')} className={`px-3 py-1 text-sm font-semibold rounded-md transition-all ${language === 'ua' ? 'bg-yellow-500 shadow-md text-yellow-950' : 'text-yellow-200 hover:bg-white/10'}`}>UA</button>
             <button onClick={() => setLanguage('en')} className={`px-3 py-1 text-sm font-semibold rounded-md transition-all ${language === 'en' ? 'bg-yellow-500 shadow-md text-yellow-950' : 'text-yellow-200 hover:bg-white/10'}`}>EN</button>
           </div>

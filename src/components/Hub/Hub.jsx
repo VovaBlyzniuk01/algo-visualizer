@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { algorithmsData } from '../../data/algorithmsData';
 import { useLanguage } from '../../context/LanguageContext';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 const labels = {
   en: {
@@ -49,7 +50,7 @@ const accentClasses = {
   },
 };
 
-function AlgorithmCard({ algorithm, language, openLabel, previewLabel, navigate }) {
+export function AlgorithmCard({ algorithm, language, openLabel, previewLabel, navigate }) {
   const Preview = algorithm.preview;
   const colorSet = accentClasses[algorithm.accent.key];
   const title = algorithm.title[language] ?? algorithm.title.en;
@@ -132,7 +133,8 @@ const Hub = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,210,255,0.1),transparent_24%),radial-gradient(circle_at_22%_68%,rgba(217,70,239,0.08),transparent_22%),radial-gradient(circle_at_80%_18%,rgba(16,185,129,0.1),transparent_20%),linear-gradient(180deg,#040914,#071120_45%,#030611)]" />
       <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:88px_88px]" />
 
-      <header className="relative z-20 mx-auto flex w-full max-w-7xl justify-end px-6 py-6 lg:px-10">
+      <header className="relative z-20 mx-auto flex w-full max-w-7xl justify-between items-center px-6 py-6 lg:px-10">
+        <ThemeToggle />
         <div className="flex gap-1 rounded-xl border border-white/10 bg-white/5 p-1 backdrop-blur-md">
           <button
             onClick={() => setLanguage('ua')}

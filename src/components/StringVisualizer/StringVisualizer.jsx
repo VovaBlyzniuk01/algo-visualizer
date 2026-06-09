@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import { ArrowLeft, Play, Pause, SkipBack, SkipForward, RotateCcw } from 'lucide-react';
 import { getNaiveSteps, getKMPSteps } from './algorithms/stringAlgorithms';
 
@@ -203,7 +204,9 @@ const StringVisualizer = () => {
            {labels[language].title}
         </motion.h1>
         
-        <div className="flex-1 flex justify-end"></div>
+        <div className="flex-1 flex justify-end">
+          <ThemeToggle />
+        </div>
       </header>
 
       <main className="flex-1 min-h-0 flex flex-col items-center justify-start p-4 lg:p-6 w-full max-w-7xl mx-auto space-y-4 z-10 overflow-hidden">
